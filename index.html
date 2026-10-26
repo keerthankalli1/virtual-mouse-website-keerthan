@@ -1,0 +1,491 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Virtual Mouse — a hand gesture recognition system built with Python, OpenCV, MediaPipe and PyAutoGUI."
+  >
+
+  <title>Virtual Mouse | Hand Gesture Control</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Virtual Mouse home">
+      <span class="brand-icon">✋</span>
+      Virtual<span>Mouse</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+    >☰</button>
+
+    <nav id="navigation">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#technology">Technology</a>
+      <a href="#testing">Testing</a>
+      <a href="#download">Download</a>
+    </nav>
+
+    <a class="header-cta" href="#project">
+      Explore project <span>↗</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          COMPUTER VISION PROJECT
+        </div>
+
+        <h1>
+          Control your computer<br>
+          with <span class="gradient-text">just your hand.</span>
+        </h1>
+
+        <p class="hero-description">
+          A touch-free virtual mouse that turns hand gestures into
+          everyday mouse actions using real-time hand tracking.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#features">
+            Discover features <span>→</span>
+          </a>
+
+          <a class="button secondary" href="#how-it-works">
+            How it works
+          </a>
+
+          <a class="button secondary" href="#download">
+            Download app ↓
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>6</strong>
+            <span>Core gestures</span>
+          </div>
+
+          <div>
+            <strong>Live</strong>
+            <span>Hand tracking</span>
+          </div>
+
+          <div>
+            <strong>Python</strong>
+            <span>Powered</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="hero-visual"
+        aria-label="Illustration of hand gesture tracking"
+      >
+        <div class="visual-glow"></div>
+
+        <div class="tracking-card">
+          <div class="tracking-top">
+            <span><i></i> HAND TRACKING</span>
+            <span class="live-tag">LIVE DEMO CONCEPT</span>
+          </div>
+
+          <div class="hand-art">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <svg
+              viewBox="0 0 300 300"
+              role="img"
+              aria-label="Stylized hand outline"
+            >
+              <defs>
+                <linearGradient
+                  id="handGradient"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#65f0dc"/>
+                  <stop offset="100%" stop-color="#8b9dff"/>
+                </linearGradient>
+              </defs>
+
+              <g
+                fill="none"
+                stroke="url(#handGradient)"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M102 238 L83 197 L66 159 Q61 145 72 139 Q83 134 91 148 L109 177 L104 94 Q104 78 117 78 Q130 78 130 94 L135 158 L139 66 Q140 50 153 51 Q166 52 165 68 L162 158 L174 83 Q177 69 190 73 Q202 77 199 91 L184 168 L201 122 Q207 108 219 115 Q231 122 224 137 L208 191 Q202 221 179 242 L176 251 L110 251 Z"/>
+
+                <path d="M109 177 Q126 189 140 181 M135 158 Q148 171 162 158 M162 158 Q173 171 184 168"/>
+
+                <circle cx="117" cy="94" r="4" fill="#65f0dc"/>
+                <circle cx="153" cy="67" r="4" fill="#65f0dc"/>
+                <circle cx="190" cy="86" r="4" fill="#8b9dff"/>
+                <circle cx="219" cy="127" r="4" fill="#8b9dff"/>
+              </g>
+
+              <g fill="#65f0dc">
+                <circle cx="72" cy="139" r="4"/>
+                <circle cx="109" cy="177" r="4"/>
+                <circle cx="162" cy="158" r="4"/>
+                <circle cx="184" cy="168" r="4"/>
+              </g>
+            </svg>
+
+            <div class="point-label label-a">21 hand landmarks</div>
+            <div class="point-label label-b">Gesture detected</div>
+          </div>
+
+          <div class="tracking-bottom">
+            <span><b class="green-dot"></b> Tracking concept</span>
+            <span>Computer vision · Real time</span>
+          </div>
+        </div>
+
+        <div class="floating-chip chip-top">
+          ⌖ &nbsp; Cursor movement
+        </div>
+
+        <div class="floating-chip chip-bottom">
+          ✦ &nbsp; Touch-free interaction
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY STRIP -->
+    <section class="trust-strip">
+      <span>BUILT WITH</span>
+      <b>Python</b>
+      <b>OpenCV</b>
+      <b>MediaPipe</b>
+      <b>PyAutoGUI</b>
+      <b>Tkinter</b>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section content-section" id="features">
+      <div class="section-heading">
+        <div class="eyebrow">WHAT IT CAN DO</div>
+
+        <h2>
+          Six gestures.
+          <span class="gradient-text">More natural control.</span>
+        </h2>
+
+        <p>
+          Use simple hand movements to perform common mouse actions
+          without touching a physical mouse.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">⌖</div>
+          <h3>Move cursor</h3>
+          <p>Move your index finger to guide the on-screen pointer.</p>
+          <span class="gesture-tag">Index finger</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">👆</div>
+          <h3>Left-click</h3>
+          <p>Use a thumb-and-index pinch to select an item.</p>
+          <span class="gesture-tag">Thumb + index pinch</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⏱</div>
+          <h3>Double-click</h3>
+          <p>Perform two quick pinch actions to open an item.</p>
+          <span class="gesture-tag">Two quick pinches</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">↗</div>
+          <h3>Right-click</h3>
+          <p>Use a thumb-and-middle-finger pinch for context actions.</p>
+          <span class="gesture-tag">Thumb + middle pinch</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">✥</div>
+          <h3>Drag and drop</h3>
+          <p>Hold a pinch while moving, then release to drop.</p>
+          <span class="gesture-tag">Hold pinch, then release</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">↕</div>
+          <h3>Scroll</h3>
+          <p>Raise your index finger and use the configured scroll gesture.</p>
+          <span class="gesture-tag">Scroll gesture</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how-it-works">
+      <div class="section two-column">
+        <div>
+          <div class="eyebrow">UNDER THE HOOD</div>
+
+          <h2>From camera frame<br>to mouse action.</h2>
+
+          <p class="muted">
+            The application processes camera frames, identifies hand
+            landmarks, interprets gesture rules, and sends the
+            corresponding mouse command.
+          </p>
+
+          <div class="notice">
+            <span>ⓘ</span>
+            <p>
+              This project uses MediaPipe's hand-landmark detection
+              and rule-based gesture logic; it does not claim to train
+              a custom AI model.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div>
+              <h3>Capture</h3>
+              <p>The webcam supplies live video frames.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <div>
+              <h3>Detect landmarks</h3>
+              <p>MediaPipe identifies hand points for tracking.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <div>
+              <h3>Recognize gesture</h3>
+              <p>Finger positions, distances and timing determine the action.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">04</div>
+            <div>
+              <h3>Control pointer</h3>
+              <p>PyAutoGUI performs mouse movement, clicks, dragging and scrolling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="section content-section" id="technology">
+      <div class="section-heading">
+        <div class="eyebrow">PROJECT STACK</div>
+
+        <h2>
+          Tools behind the
+          <span class="gradient-text">experience.</span>
+        </h2>
+
+        <p>
+          A Python-based desktop application with real-time vision
+          processing and a simple GUI.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <span class="tech-symbol">Py</span>
+          <div>
+            <h3>Python</h3>
+            <p>Main programming language and application logic.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-symbol">CV</span>
+          <div>
+            <h3>OpenCV</h3>
+            <p>Webcam capture and image-frame processing.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-symbol">MP</span>
+          <div>
+            <h3>MediaPipe</h3>
+            <p>Hand detection and 21 landmark points.</p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <span class="tech-symbol">PA</span>
+          <div>
+            <h3>PyAutoGUI</h3>
+            <p>Mouse movement and interaction commands.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTING -->
+    <section class="testing-section" id="testing">
+      <div class="section testing-inner">
+        <div>
+          <div class="eyebrow">VALIDATION</div>
+
+          <h2>Tested for everyday gestures.</h2>
+
+          <p class="muted">
+            The project includes manual gesture tests and a performance
+            dashboard for recording outcomes and viewing measurements.
+          </p>
+        </div>
+
+        <div class="testing-points">
+          <div>
+            <span class="check">✓</span>
+            <span>False-click prevention checks</span>
+          </div>
+
+          <div>
+            <span class="check">✓</span>
+            <span>Click and drag timing tests</span>
+          </div>
+
+          <div>
+            <span class="check">✓</span>
+            <span>Tracking interruption checks</span>
+          </div>
+
+          <div>
+            <span class="check">✓</span>
+            <span>Performance metrics dashboard</span>
+          </div>
+
+          <p class="small-note">
+            Results depend on test conditions and the user's environment.
+            Add your final verified measurements and screenshots before
+            submitting the project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW DOWNLOAD SECTION -->
+    <section class="section content-section" id="download">
+      <div class="section-heading">
+        <div class="eyebrow">GET THE APPLICATION</div>
+
+        <h2>
+          Try Virtual Mouse on
+          <span class="gradient-text">your computer.</span>
+        </h2>
+
+        <p>
+          Download the Windows desktop application and control your
+          computer using hand gestures through your webcam.
+        </p>
+      </div>
+
+      <div class="cta-panel">
+        <div class="eyebrow">WINDOWS DESKTOP APPLICATION</div>
+
+        <h2>Ready to try it?</h2>
+
+        <p>
+          Download the application package, extract the ZIP file,
+          and launch VirtualMouse.exe.
+        </p>
+
+        <!--
+          Put your actual ZIP file in:
+          virtual_mouse_website/downloads/VirtualMouse.zip
+
+          Keep this link unchanged if you use that folder structure.
+        -->
+        <a
+          class="button primary"
+          href="downloads/VirtualMouse.zip"
+          download="VirtualMouse.zip"
+        >
+          Download for Windows ↓
+        </a>
+
+        <p class="small-note">
+          Windows desktop application · Webcam required ·
+          Extract the ZIP file before running the application.
+        </p>
+
+        <p class="small-note">
+          If the download does not start, the application ZIP file
+          may not have been added to the website yet.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECT CTA -->
+    <section class="section project-cta" id="project">
+      <div class="cta-panel">
+        <div class="eyebrow">VIRTUAL MOUSE PROJECT</div>
+
+        <h2>
+          Making computer interaction<br>
+          <span class="gradient-text">more accessible and touch-free.</span>
+        </h2>
+
+        <p>
+          This website introduces the project, its features,
+          workflow and technologies.
+        </p>
+
+        <a href="#home" class="button primary">Back to top ↑</a>
+        <a href="#download" class="button secondary">Download app ↓</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <a class="brand" href="#home">
+      <span class="brand-icon">✋</span>
+      Virtual<span>Mouse</span>
+    </a>
+
+    <p>Student project · Hand Gesture Recognition System</p>
+
+    <span>
+      © <span id="year"></span> Virtual Mouse Project
+    </span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
